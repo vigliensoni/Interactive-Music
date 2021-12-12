@@ -46,7 +46,7 @@ function handleOrientation(event) {
     var gamma    = event.gamma;
   
     console.log(absolute, alpha, beta, gamma)
-    document.getElementById("orientationData").innerHTML = absolute + alpha + beta + gamma
+    document.getElementById("orientationData").innerHTML = "\nabsolute: " + absolute + "\nalpha: " + alpha + "\nbeta: " + beta + "\ngamma: " + gamma
   }
   window.addEventListener('deviceorientation', handleOrientation);
 
