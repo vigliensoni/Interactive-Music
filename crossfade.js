@@ -57,7 +57,7 @@ function handleOrientation(event) {
         CHECK_RESULT(result);
     }
 
-    document.getElementById("orientationData").innerHTML = "\n" + "absolute: " + absolute + "\n" + "alpha: " + alpha + "\nbeta: " + beta + "\ngamma: " + gamma
+    document.getElementById("orientationData").innerHTML = "\n" + "absolute: " + absolute + "\n" + "alpha: " + alpha + "\nbeta: " + beta + "\ngamma: " + gamma + "\n" + "xfadeValue: " + xfadeValue
   }
   window.addEventListener('deviceorientation', handleOrientation);
 
