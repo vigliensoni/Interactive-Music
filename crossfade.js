@@ -191,7 +191,7 @@ function initApplication()
     gEventInstance = eventInstance.val;
 
     // Make the event audible to start with
-    var surfaceParameterValue = 0.0;
+    var surfaceParameterValue = 1.0;
     CHECK_RESULT( gEventInstance.setParameterByID(gSurfaceID, surfaceParameterValue, false) );
 
     // Once the loading is finished, re-enable the disabled buttons.
