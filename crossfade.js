@@ -38,6 +38,18 @@ function CHECK_RESULT(result)
     }
 }
 
+// Retrieve mobile orientation data
+function handleOrientation(event) {
+    var absolute = event.absolute;
+    var alpha    = event.alpha;
+    var beta     = event.beta;
+    var gamma    = event.gamma;
+  
+    console.log(absolute, alpha, beta, gamma)
+    document.getElementById("orientationData").innerHTML = absolute + alpha + beta + gamma
+  }
+  window.addEventListener('deviceorientation', handleOrientation);
+
 // Will be called before FMOD runs, but after the Emscripten runtime has initialized
 // Call FMOD file preloading functions here to mount local files.  Otherwise load custom data from memory or use own file system. 
 function prerun()
