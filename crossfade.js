@@ -38,15 +38,26 @@ function CHECK_RESULT(result)
     }
 }
 
+let absolute
+let alpha   
+let beta    
+let gamma   
+let xfadeValue
+
 // Retrieve mobile orientation data
 function handleOrientation(event) {
-    var absolute = event.absolute;
-    var alpha    = event.alpha;
-    var beta     = event.beta;
-    var gamma    = event.gamma;
-  
-    console.log(absolute, alpha, beta, gamma)
-    document.getElementById("orientationData").innerHTML = "\nabsolute: " + absolute + "\nalpha: " + alpha + "\nbeta: " + beta + "\ngamma: " + gamma
+    absolute = event.absolute;
+    alpha    = event.alpha;
+    beta     = event.beta;
+    gamma    = event.gamma;
+    xfadeValue = alpha/360;
+    if (gEventInstance)
+    {
+        var result = gEventInstance.setParameterByID(gSurfaceID, parseFloat(xfadeValue), false);
+        CHECK_RESULT(result);
+    }
+
+    document.getElementById("orientationData").innerHTML = "\n" + "absolute: " + absolute + "\n" + "alpha: " + alpha + "\nbeta: " + beta + "\ngamma: " + gamma
   }
   window.addEventListener('deviceorientation', handleOrientation);
 
