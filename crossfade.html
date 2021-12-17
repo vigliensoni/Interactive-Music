@@ -24,12 +24,23 @@
         <br/>
         <form>
             <label for="surfaceparameter">XFade</label>
-            <input id="surfaceparameter" type="range" min="0" max="1" step="0.01" value="0.5" oninput="paramChanged(this.value)" disabled>
+            <input id="surfaceparameter" type="range" min="0" max="1" step="0.01" value="0.5" oninput="paramChanged(this.value)" enabled>
             <output for="surfaceparameter" id="surfaceparameter_out">0.5</output>
         </form>
         <br/>        
         0 to 1</br>
         <br/>
+
+        <form>
+            <label for="eventnumber">Event number Value</label>
+            <input id="eventnumber" type="range" min="0" max="3" step="1" value="0" oninput="sequenceChanged(this.value)" enabled>
+            <output for="eventnumber" id="eventnumber_out">0</output>
+        </form>
+        <br/>        
+        0 = A, 1 = A, 2 = , 3 = </br>
+        <br/>
+
+
 
         <button id="playButton" onclick="playEvent();" disabled>Play event</button>
         <p id="orientationData">Orientation data</p>

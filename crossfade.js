@@ -61,6 +61,20 @@ function handleOrientation(event) {
   }
   window.addEventListener('deviceorientation', handleOrientation);
 
+
+// Function called when user drags sequenceNumber range slider.
+function sequenceChanged(event)
+{
+    document.querySelector("#eventnumber_out").value = event;
+    // console.log(event);
+    if (gEventInstance)
+    {
+        var result = gEventInstance.setParameterByID(gSequenceID, parseFloat(event), false);
+        CHECK_RESULT(result);
+
+    }
+}
+
 // Will be called before FMOD runs, but after the Emscripten runtime has initialized
 // Call FMOD file preloading functions here to mount local files.  Otherwise load custom data from memory or use own file system. 
 function prerun()
@@ -209,13 +223,19 @@ function initApplication()
     CHECK_RESULT( eventDescription.val.getParameterDescriptionByName("XFadeContinuous", paramDesc) );
     gSurfaceID = paramDesc.id;
 
+    CHECK_RESULT( eventDescription.val.getParameterDescriptionByName("sequenceChange", paramDesc) );
+    gSequenceID = paramDesc.id;
+
     var eventInstance = {};
     CHECK_RESULT( eventDescription.val.createInstance(eventInstance) );
     gEventInstance = eventInstance.val;
 
     // Make the event audible to start with
-    var surfaceParameterValue = 1.0;
+    var surfaceParameterValue = 0.5;
     CHECK_RESULT( gEventInstance.setParameterByID(gSurfaceID, surfaceParameterValue, false) );
+
+    var surfaceParameterValue = 0.5;
+    CHECK_RESULT( gEventInstance.setParameterByID(gSequenceID, surfaceParameterValue, false) );
 
     // Once the loading is finished, re-enable the disabled buttons.
     document.getElementById("surfaceparameter").disabled = false;
