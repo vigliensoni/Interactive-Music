@@ -99,7 +99,7 @@ function prerun()
     }
 }
 
-// Function called when user drags HTML range slider.
+// Function called when user drags XFade range slider.
 function paramChanged(val)
 {
     document.querySelector("#surfaceparameter_out").value = val;
