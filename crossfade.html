@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head><link rel="stylesheet" type="text/css" href="examples.css" media="all" />
-    <title>FMOD Examples - XFade</title>
+    <title>FMOD</title>
 </head>
 
 <body>
     <div id="container">
-        <div id="header">
-            <img class="logo" alt="FMOD Logo" src="images/logo.jpg">
-        </div>
 
         <br/>
+        <strong>XFade and Scenes</strong><br/>
+
         <br/>
-        <a href = "index.html"><- Return to menu</a>
+        <p class="clickscreen">Press play event to unmute audio!</p>
         <br/>
-        <br/>
-        <strong>XFade</strong><br/>
-        Copyright (c) Firelight Technologies 2018-2021.  For help using FMOD please visit <a href="http://www.fmod.com">http://www.fmod.com/</a><br/>
-        Open browser debug console to see error messages and example logging output<br/>
-        <br/>
-        <p class="clickscreen">Click or touch screen to unmute audio!</p>
+        <button id="playButton" onclick="playEvent();" disabled>Play event</button>
         <br/>
         <br/>
         <form>
@@ -32,17 +26,17 @@
         <br/>
 
         <form>
-            <label for="eventnumber">Event number Value</label>
+            <label for="eventnumber">Scene number</label>
             <input id="eventnumber" type="range" min="0" max="3" step="1" value="0" oninput="sequenceChanged(this.value)" enabled>
             <output for="eventnumber" id="eventnumber_out">0</output>
         </form>
         <br/>        
-        0 = A, 1 = A, 2 = , 3 = </br>
+        0 = A, 1 = B, 2 = , 3 = </br>
         <br/>
 
 
 
-        <button id="playButton" onclick="playEvent();" disabled>Play event</button>
+
         <p id="orientationData">Orientation data</p>
         <p id="screenConsole"></div>
 
